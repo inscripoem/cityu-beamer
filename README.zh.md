@@ -26,7 +26,7 @@
 
 ## 安装与编译
 
-Overleaf：新建项目并上传 `cityu-beamer-overleaf.zip`，在项目设置中选择 **XeLaTeX**。主文档可选：
+Overleaf：从 [Releases](https://github.com/inscripoem/cityu-beamer/releases) 下载 `cityu-beamer-overleaf.zip`，新建项目并上传，在项目设置中选择 **XeLaTeX**。主文档可选：
 
 - `main.tex`：英文完整演示。
 - `example-zh.tex`：中文完整演示。

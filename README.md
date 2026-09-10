@@ -26,7 +26,7 @@ The [preview index](previews/README.md) also includes the minimal example's over
 
 ## Installation and compilation
 
-For Overleaf, upload `cityu-beamer-overleaf.zip` as a new project and select **XeLaTeX**. Choose one main document:
+For Overleaf, download `cityu-beamer-overleaf.zip` from [Releases](https://github.com/inscripoem/cityu-beamer/releases), upload it as a new project, and select **XeLaTeX**. Choose one main document:
 
 - `main.tex`: the full English example.
 - `example-zh.tex`: the full Chinese example.
