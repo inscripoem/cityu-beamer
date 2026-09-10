@@ -1,4 +1,4 @@
-# CityU Beamer
+# CityUHK Beamer
 
 [English](README.md) · [简体中文](README.zh.md)
 
@@ -75,9 +75,9 @@ Cover, divider, and closing helper pages are excluded from the frame counter. To
 
 ## Agent skill development
 
-An initial repository-local [CityU Beamer skill](.agents/skills/cityu-beamer/SKILL.md) provides shared instructions for OpenCode and Codex using the existing template. It currently requires this checkout and targets PDF plus LaTeX source; automated helpers, standalone installation, and validation in both tools are follow-up work in [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2).
+An initial repository-local [CityUHK Beamer skill](.agents/skills/cityuhk-beamer/SKILL.md) provides shared instructions for OpenCode and Codex using the existing template. It currently requires this checkout and targets PDF plus LaTeX source; automated helpers, standalone installation, and validation in both tools are follow-up work in [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2).
 
-Contribute in `.agents/skills/cityu-beamer/`; see the [skill contribution guide](.agents/skills/README.md) (English) for the directory conventions.
+Contribute in `.agents/skills/cityuhk-beamer/`; see the [skill contribution guide](.agents/skills/README.md) (English) for the directory conventions.
 
 ## Documentation
 
@@ -92,7 +92,7 @@ Issues and pull requests are welcome in English or Chinese. User documentation i
 
 ## License
 
-Original theme code, examples, tools, configuration, and documentation use the [MIT License](LICENSE). CityU artwork, including artwork in the previews, is excluded. See [NOTICE.md](NOTICE.md) for provenance and rights; public redistribution permission for the branding has not been established by this project.
+Original theme code, examples, tools, configuration, and documentation use the [MIT License](LICENSE). CityUHK artwork, including artwork in the previews, is excluded. See [NOTICE.md](NOTICE.md) for provenance and rights; public redistribution permission for the branding has not been established by this project.
 
 ## Acknowledgments
 
