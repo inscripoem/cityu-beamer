@@ -2,6 +2,8 @@
 % 编译器：XeLaTeX。Overleaf 中将本文件设为主文档即可编译中文示例。
 \documentclass[aspectratio=169,11pt,t]{beamer}
 
+% 在 ctex 加载 fontspec 前声明主题使用的数学字体选项，兼容旧版 TeX Live。
+\PassOptionsToPackage{no-math}{fontspec}
 % Fandol 随 TeX Live 提供，不依赖 Windows、macOS 或商业字体。
 \usepackage[UTF8,fontset=fandol]{ctex}
 \usetheme{CityU}

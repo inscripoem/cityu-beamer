@@ -23,7 +23,7 @@ The fonts are selected from TeX Live by filename: TeX Gyre Heros (sans), Termes 
 
 The ZIP has a root-level main document, theme, `latexmkrc`, four backgrounds in `assets/`, both usage guides, and license notices. Its READMEs are dedicated import instructions. You do not need the original PPT, repository previews, Python tools, or a local TeX installation to compile on Overleaf.
 
-Clean local import builds have been checked with TeX Live 2026. Actual Overleaf cloud compilation and older TeX Live versions have not been verified. The [Gallery submission policy](https://docs.overleaf.com/templates/submitting-to-the-overleaf-template-gallery) excludes unofficial university presentation templates; this community adaptation does not become eligible merely by compiling successfully. Official status and artwork permissions must be established separately.
+Clean local import builds have been checked with TeX Live 2026. Actual Overleaf cloud compilation has not been verified. The [Gallery submission policy](https://docs.overleaf.com/templates/submitting-to-the-overleaf-template-gallery) excludes unofficial university presentation templates; this community adaptation does not become eligible merely by compiling successfully. Official status and artwork permissions must be established separately.
 
 ## Local compilation
 
@@ -100,12 +100,15 @@ The custom directory must contain `title.png`, `section.png`, `content.png`, and
 
 ## Chinese and bilingual documents
 
-Load ctex before the theme, as in `example-zh.tex`:
+Pass the theme's `no-math` option to fontspec before loading ctex, then load the theme, as in `example-zh.tex`:
 
 ```latex
+\PassOptionsToPackage{no-math}{fontspec}
 \usepackage[UTF8,fontset=fandol]{ctex}
 \usetheme{CityU}
 ```
+
+ctex loads fontspec internally. Declaring `no-math` first preserves the theme's Latin Modern mathematics and avoids an option clash on older TeX Live versions.
 
 This uses Fandol Chinese fonts and Chinese figure/table labels. Add `scheme=plain` to the ctex options if you want Chinese text with English-style labels. Fandol is not a complete collection of every rare CJK character; check the log when adding unusual names or characters.
 
@@ -134,6 +137,7 @@ Available colours are `CityURed`, `CityUInk`, `CityUMuted`, `CityULine`, `CityUP
 - **"This theme requires XeLaTeX"**: change the project compiler; do not convert the source to pdfLaTeX.
 - **Missing `beamerthemeCityU.sty`**: restore/upload the supplied theme file beside the main document and compile from that directory; it is not a TeX Live package.
 - **Missing dependency `.sty` or font files**: install the named TeX Live package, not a Windows font. A complete Overleaf TeX Live image normally supplies these dependencies.
+- **"Option clash for package fontspec"**: use the Chinese preamble above; pass `no-math` before ctex or any other package first loads fontspec.
 - **Missing background**: compile from the project root; check `assetspath`, filenames, and case. Upload all four PNGs.
 - **Incorrect total / unresolved citation**: run `latexmk` or compile again so Beamer's auxiliary files settle.
 - **Overflow or crowded slide**: shorten the content or split the frame; do not assume a successful build guarantees good layout.

@@ -23,7 +23,7 @@
 
 ZIP 根目录直接包含主文档、主题和 `latexmkrc`，并附有 `assets/` 中的四张背景、两种语言的使用指南及许可声明。包内 README 是专用导入说明。在 Overleaf 上编译不需要原始 PPT、仓库预览、Python 工具或本地 TeX 安装。
 
-已用 TeX Live 2026 检查全新解压后的本地编译；尚未验证真实 Overleaf 云端编译或旧版 TeX Live。[Gallery 提交政策](https://docs.overleaf.com/templates/submitting-to-the-overleaf-template-gallery)不接收非官方大学演示模板，因此这个社区改编版本不会仅因编译成功就获得上架资格；官方认可与素材授权需要另行确认。
+已用 TeX Live 2026 检查全新解压后的本地编译；尚未验证真实 Overleaf 云端编译。[Gallery 提交政策](https://docs.overleaf.com/templates/submitting-to-the-overleaf-template-gallery)不接收非官方大学演示模板，因此这个社区改编版本不会仅因编译成功就获得上架资格；官方认可与素材授权需要另行确认。
 
 ## 本地编译
 
@@ -100,12 +100,15 @@ latexmk -xelatex -outdir=build minimal.tex
 
 ## 中文与双语文档
 
-与 `example-zh.tex` 一样，在主题之前加载 ctex：
+与 `example-zh.tex` 一样，先向 fontspec 传递主题使用的 `no-math` 选项，再依次加载 ctex 和主题：
 
 ```latex
+\PassOptionsToPackage{no-math}{fontspec}
 \usepackage[UTF8,fontset=fandol]{ctex}
 \usetheme{CityU}
 ```
+
+ctex 会间接加载 fontspec。提前声明 `no-math` 可以保留主题的 Latin Modern 数学字体，并避免旧版 TeX Live 中的选项冲突。
 
 这样会使用 Fandol 中文字体和中文图表标签。如果希望支持中文文字但保留英文风格的标签，可在 ctex 选项中加入 `scheme=plain`。Fandol 不覆盖全部生僻汉字；添加少见姓名或字符后应检查编译日志。
 
@@ -134,6 +137,7 @@ latexmk -xelatex -outdir=build minimal.tex
 - **“This theme requires XeLaTeX”**：更改项目编译器，不要将源码改用 pdfLaTeX 编译。
 - **找不到 `beamerthemeCityU.sty`**：将附带的主题文件放回或上传到主文档旁，并从该目录编译；它不是 TeX Live 自带宏包。
 - **缺少依赖 `.sty` 或字体文件**：安装报错对应的 TeX Live 宏包，不必安装 Windows 字体。完整的 Overleaf TeX Live 环境通常已提供这些依赖。
+- **“Option clash for package fontspec”**：采用上面的中文导言区写法，在 ctex 或其他宏包首次加载 fontspec 前传递 `no-math`。
 - **缺少背景**：从项目根目录编译，检查 `assetspath`、文件名及大小写，确认四张 PNG 均已上传。
 - **总页码不正确或引用未解析**：使用 `latexmk` 或再次编译，让 Beamer 的辅助文件稳定下来。
 - **内容溢出或页面拥挤**：缩短内容或拆成多个帧；编译成功不代表版式一定合适。

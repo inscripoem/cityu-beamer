@@ -47,10 +47,11 @@ latexmk -xelatex -outdir=build example-zh.tex
 
 ## 快速开始
 
-建议复制 `minimal.tex`；中文文档在 `\usetheme{CityU}` 之前加载 ctex：
+建议复制 `minimal.tex` 并替换文档信息与正文。中文文档采用 `example-zh.tex` 的写法：先向 fontspec 传递 `no-math`，再依次加载 ctex 和主题，避免旧版 TeX Live 中的选项冲突：
 
 ```latex
 \documentclass[aspectratio=169,11pt,t]{beamer}
+\PassOptionsToPackage{no-math}{fontspec}
 \usepackage[UTF8,fontset=fandol]{ctex}
 \usetheme{CityU}
 \title[页脚短标题]{你的报告标题}

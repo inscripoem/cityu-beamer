@@ -47,7 +47,7 @@ Local builds have been checked with TeX Live 2026. Actual Overleaf cloud compila
 
 ## Quick start
 
-Copy `minimal.tex` and replace the metadata and frame content. For Chinese text, load `\usepackage[UTF8,fontset=fandol]{ctex}` before the theme, as in `example-zh.tex`.
+Copy `minimal.tex` and replace the metadata and frame content. For Chinese text, follow `example-zh.tex`: put `\PassOptionsToPackage{no-math}{fontspec}` before `\usepackage[UTF8,fontset=fandol]{ctex}`, then load the theme. This avoids fontspec option clashes on older TeX Live versions.
 
 ```latex
 \documentclass[aspectratio=169,11pt,t]{beamer}

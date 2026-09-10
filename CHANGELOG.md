@@ -17,6 +17,11 @@ Changes to the theme and its supporting files.
 
 - Packaging regression checks for dedicated instructions, independence from repository-only files, and working documentation links inside the actual ZIP.
 
+### Fixed
+
+- Explicitly install the separate TeX Gyre OpenType font package in Ubuntu CI.
+- Declare fontspec's `no-math` option before ctex in the Chinese example, READMEs, and usage guides to avoid option clashes on older TeX Live versions.
+
 ## 1.0.1 — 2026-09-08
 
 ### Changed
