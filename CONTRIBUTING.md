@@ -14,9 +14,15 @@ Include the compiler and TeX Live versions, operating system or Overleaf setting
 4. Update the corresponding English and Chinese user documents when a public interface changes.
 5. Do not commit `build/`, `dist/`, scratch exports, original PPTs, local environments, or private data. The curated PNGs and example PDFs listed in `previews/README.md` are documentation and should be refreshed with relevant visual changes.
 
+## Naming
+
+Use **CityUHK** as the university abbreviation in prose and display names, and **cityuhk** in new lowercase identifiers, skill names, and directory names. For example, the shared skill is named `cityuhk-beamer` and displayed as "CityUHK Beamer".
+
+References to existing repository URLs, filenames, and LaTeX commands must retain their actual spelling until those interfaces are migrated together. This includes the repository URL, `beamerthemeCityU.sty`, `\usetheme{CityU}`, and the `\cityu...` commands.
+
 ## Agent skill contributions
 
-The shared OpenCode/Codex workflow for [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2) lives in [`.agents/skills/cityu-beamer/`](.agents/skills/cityu-beamer/SKILL.md). Start with the [skill contribution guide](.agents/skills/README.md) for the directory contract, current scope, and review expectations.
+The shared OpenCode/Codex workflow for [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2) lives in [`.agents/skills/cityuhk-beamer/`](.agents/skills/cityuhk-beamer/SKILL.md). Start with the [skill contribution guide](.agents/skills/README.md) for the directory contract, current scope, and review expectations.
 
 Contribute shared instructions and skill-specific helpers there. Reuse the root theme and artwork; keep general template utilities in `tools/` and add behavioral tests for new skill helpers under `tests/skills/` when needed. Link incremental PRs to issue #2 without closing it until its agreed scope is complete.
 
@@ -46,4 +52,4 @@ Changes to release contents must update the explicit source-to-archive mapping i
 
 ## Contribution licensing
 
-By submitting original code or documentation for inclusion, you agree to license those contributions under the project's [MIT License](LICENSE). Do not submit third-party content unless you can document permission to include and redistribute it. CityU artwork is separately governed by [NOTICE.md](NOTICE.md); the code license does not cover it. You retain ownership of your contributions.
+By submitting original code or documentation for inclusion, you agree to license those contributions under the project's [MIT License](LICENSE). Do not submit third-party content unless you can document permission to include and redistribute it. CityUHK artwork is separately governed by [NOTICE.md](NOTICE.md); the code license does not cover it. You retain ownership of your contributions.

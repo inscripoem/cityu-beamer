@@ -1,11 +1,11 @@
 ---
-name: cityu-beamer
-description: Create CityU Beamer PDF presentations and editable LaTeX source from an outline in this repository. Use for English, Chinese, or bilingual slides based on the existing CityU theme.
+name: cityuhk-beamer
+description: Create CityUHK Beamer PDF presentations and editable LaTeX source from an outline in this repository. Use for English, Chinese, or bilingual slides based on the existing CityUHK theme.
 ---
 
-# CityU Beamer
+# CityUHK Beamer
 
-Use the existing CityU theme to turn an outline into a presentation. This initial instruction-only skill requires the complete repository checkout; standalone packaging and automated helpers are still being developed in [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2).
+Use the existing CityUHK theme to turn an outline into a presentation. This initial instruction-only skill requires the complete repository checkout; standalone packaging and automated helpers are still being developed in [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2).
 
 ## Locate the template
 
@@ -13,6 +13,7 @@ Resolve paths relative to this skill directory: the repository root is `../../..
 
 ## Prepare the presentation
 
+- Use `CityUHK` as the university abbreviation in presentation text and `cityuhk` in new lowercase identifiers and filenames. Keep references to existing template files and LaTeX commands exact.
 - Use the supplied outline and optional metadata, language, slide count, duration, and source materials. An outline alone is enough for a draft; leave missing author details blank and mark missing evidence or citations for the user to supply.
 - Create a fresh presentation directory under the repository's `build/` directory, or use the user's requested output location. Keep generated work separate from the original examples and avoid replacing existing user files.
 - Place the generated `main.tex`, `beamerthemeCityU.sty`, `latexmkrc`, and the complete `assets/` directory together in that presentation directory. Reuse the repository resources and preserve the existing artwork.
