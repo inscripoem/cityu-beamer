@@ -75,6 +75,12 @@ latexmk -xelatex -outdir=build example-zh.tex
 \usetheme[sectionpages=false,footer=false]{CityU}
 ```
 
+## Agent Skill 开发
+
+仓库内的初版 [CityU Beamer skill](.agents/skills/cityu-beamer/SKILL.md) 为 OpenCode 和 Codex 提供基于现有模板的共享指引。目前需要完整仓库，输出目标为 PDF 与 LaTeX 源码；自动化脚本、独立安装及两种工具中的验证将在 [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2) 中继续推进。
+
+请在 `.agents/skills/cityu-beamer/` 中贡献，目录约定见 [skill 贡献指南](.agents/skills/README.md)（英文）。
+
 ## 文档
 
 - 详细用法与自定义接口：[简体中文](docs/USAGE.zh.md) · [English](docs/USAGE.md)

@@ -14,6 +14,12 @@ Include the compiler and TeX Live versions, operating system or Overleaf setting
 4. Update the corresponding English and Chinese user documents when a public interface changes.
 5. Do not commit `build/`, `dist/`, scratch exports, original PPTs, local environments, or private data. The curated PNGs and example PDFs listed in `previews/README.md` are documentation and should be refreshed with relevant visual changes.
 
+## Agent skill contributions
+
+The shared OpenCode/Codex workflow for [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2) lives in [`.agents/skills/cityu-beamer/`](.agents/skills/cityu-beamer/SKILL.md). Start with the [skill contribution guide](.agents/skills/README.md) for the directory contract, current scope, and review expectations.
+
+Contribute shared instructions and skill-specific helpers there. Reuse the root theme and artwork; keep general template utilities in `tools/` and add behavioral tests for new skill helpers under `tests/skills/` when needed. Link incremental PRs to issue #2 without closing it until its agreed scope is complete.
+
 ## Documentation language
 
 Maintain complete English and Chinese versions of the repository READMEs, `docs/USAGE.md` / `docs/USAGE.zh.md`, and `overleaf/README.md` / `overleaf/README.zh.md`. Keep corresponding instructions and options aligned; examples and previews may use their own language.

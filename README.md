@@ -73,6 +73,12 @@ Cover, divider, and closing helper pages are excluded from the frame counter. To
 \usetheme[sectionpages=false,footer=false]{CityU}
 ```
 
+## Agent skill development
+
+An initial repository-local [CityU Beamer skill](.agents/skills/cityu-beamer/SKILL.md) provides shared instructions for OpenCode and Codex using the existing template. It currently requires this checkout and targets PDF plus LaTeX source; automated helpers, standalone installation, and validation in both tools are follow-up work in [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2).
+
+Contribute in `.agents/skills/cityu-beamer/`; see the [skill contribution guide](.agents/skills/README.md) (English) for the directory conventions.
+
 ## Documentation
 
 - Usage and customisation: [English](docs/USAGE.md) · [简体中文](docs/USAGE.zh.md)

@@ -35,7 +35,9 @@ __pycache__/
 !.env.example
 /.idea/
 /.vscode/
-/.agents/
+# Share agent skills while keeping other local agent configuration private.
+/.agents/*
+!/.agents/skills/
 /.codex/
 *.swp
 *~
