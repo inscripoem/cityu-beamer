@@ -1,0 +1,20 @@
+% SPDX-License-Identifier: MIT
+% A normal section adds a divider; a starred section does not.
+\documentclass[aspectratio=169,11pt,t]{beamer}
+\usetheme{CityU}
+\title[Section checks]{Section page checks}
+\author{}
+\date{}
+
+\begin{document}
+\cityutitlepage
+\section{Numbered section}
+\begin{frame}{After a numbered section}
+  This content follows an automatic divider.
+\end{frame}
+\section*{Unnumbered section}
+\begin{frame}{After a starred section}
+  No extra divider precedes this content.
+\end{frame}
+\cityuclosing{Section checks complete}
+\end{document}

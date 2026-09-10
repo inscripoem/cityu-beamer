@@ -1,0 +1,77 @@
+# SPDX-License-Identifier: MIT
+name: LaTeX checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: latex-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Install TeX and optional PDF-check dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            latexmk texlive-xetex texlive-latex-extra texlive-lang-chinese \
+            texlive-fonts-recommended tex-gyre lmodern python3-venv
+          python3 -m venv .venv
+          .venv/bin/python -m pip install -r requirements-dev.txt
+          xelatex --version
+          latexmk -v
+
+      - name: Test source packaging
+        run: |
+          .venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v
+          .venv/bin/python tools/package.py
+
+      - name: Compile examples and option fixtures
+        run: |
+          for source in minimal.tex main.tex example-zh.tex tests/options.tex tests/sections.tex; do
+            latexmk -xelatex -latexoption=-no-shell-escape -interaction=nonstopmode \
+              -halt-on-error -file-line-error -outdir=build "$source"
+          done
+
+      - name: Test relocated artwork and manual pages
+        run: |
+          mkdir -p build/assetspath-check/brand
+          cp beamerthemeCityU.sty latexmkrc tests/manual-pages.tex build/assetspath-check/
+          cp assets/title.png assets/section.png assets/content.png assets/closing.png \
+            build/assetspath-check/brand/
+          test ! -e build/assetspath-check/assets
+          cd build/assetspath-check
+          latexmk -xelatex -latexoption=-no-shell-escape -interaction=nonstopmode \
+            -halt-on-error -file-line-error -outdir=build manual-pages.tex
+
+      - name: Check PDF numbering and layout
+        run: |
+          .venv/bin/python tools/check_examples.py
+          .venv/bin/python tools/check_layout.py build/minimal.pdf --page 3
+          .venv/bin/python tools/check_layout.py build/main.pdf --page 13
+          .venv/bin/python tools/check_layout.py build/example-zh.pdf --page 5
+
+      - name: Compile a clean extraction of the Overleaf ZIP
+        run: |
+          .venv/bin/python -m zipfile -e dist/cityu-beamer-overleaf.zip build/zip-import
+          cd build/zip-import
+          for source in minimal.tex main.tex example-zh.tex; do
+            latexmk -xelatex -latexoption=-no-shell-escape -interaction=nonstopmode \
+              -halt-on-error -file-line-error -outdir=build "$source"
+          done
+
+      # No artifact upload or release publication: artwork permissions are separate.

@@ -1,0 +1,20 @@
+% SPDX-License-Identifier: MIT
+% Run from the project root; this document must produce exactly four pages.
+\documentclass[aspectratio=169,11pt,t]{beamer}
+\usetheme[sectionpages=false,footer=false]{CityU}
+\title{Theme option checks}
+\author{}
+\date{}
+\cityufooter{HIDDEN FOOTER SENTINEL}
+
+\begin{document}
+\cityutitlepage
+\section{No automatic divider}
+\begin{frame}{First option check}
+  There is no automatic section divider and no footer.
+\end{frame}
+\begin{frame}{Second option check}
+  The options remain in effect on subsequent frames.
+\end{frame}
+\cityuclosing{Options checked}
+\end{document}

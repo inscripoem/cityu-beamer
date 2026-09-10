@@ -1,0 +1,146 @@
+% SPDX-License-Identifier: MIT
+% 编译器：XeLaTeX。Overleaf 中将本文件设为主文档即可编译中文示例。
+\documentclass[aspectratio=169,11pt,t]{beamer}
+
+% Fandol 随 TeX Live 提供，不依赖 Windows、macOS 或商业字体。
+\usepackage[UTF8,fontset=fandol]{ctex}
+\usetheme{CityU}
+\usepackage{booktabs}
+\usetikzlibrary{arrows.meta,positioning}
+
+\title[CityU Beamer · 中文示例]{把研究讲清楚\\从一份好用的模板开始}
+\subtitle{基于现有 CityU 202501 PPT · 中文示例}
+\author{你的姓名}
+\institute{学院／学系／研究团队\\香港城市大学}
+\date{2026年9月8日}
+
+\begin{document}
+
+\cityutitlepage
+
+\begin{frame}{同一套视觉，适用于中英文报告}
+  \begin{itemize}
+    \item 保留原 PPT 的封面、章节页、正文页与结束页背景。
+    \item 标题、正文、公式、图表和页码均由 \LaTeX{} 原生排版。
+    \item 中文使用 Fandol，英文使用 TeX Gyre Heros。
+  \end{itemize}
+  \medskip
+  \begin{block}{从这里开始}
+    修改标题、作者和单位，再用自己的内容替换示例。
+    编译时选择 XeLaTeX，无需另行安装系统中文字体。
+  \end{block}
+\end{frame}
+
+\section{结构与叙事}
+
+\begin{frame}{用左右分栏组织研究问题与回答}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{研究问题}
+        为什么这个问题值得研究？
+      \end{block}
+      \begin{itemize}
+        \item 说明应用场景。
+        \item 找出现有方法的局限。
+        \item 明确比较的标准。
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{exampleblock}{主要贡献}
+        用一句话概括方法带来的改变，再给出证据。
+      \end{exampleblock}
+      \begin{alertblock}{适用边界}
+        如实交代假设、条件与尚未解决的问题。
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{当标题较长时，保留自然换行与右上角校徽的安全间距}
+  \begin{itemize}
+    \item 标题区域预留了校徽空间，较长的标题会自动换行。
+    \item 正文保持左右留白，不必把每一页都填满。
+    \item 如果内容过多，优先拆成两页，而不是一味缩小字号。
+  \end{itemize}
+  \medskip
+  {\small 建议标题控制在两行内；封面作者与单位信息也应保持简洁。}
+\end{frame}
+
+\section{方法与结果}
+
+\begin{frame}{中文、English 与数学公式自然混排}
+  \framesubtitle{示例：带正则项的优化目标}
+  \[
+    \mathcal{L}(\boldsymbol{\theta})
+      = \frac{1}{n}\sum_{i=1}^{n}
+        \bigl(y_i-f_{\boldsymbol{\theta}}(\mathbf{x}_i)\bigr)^2
+        + \lambda\lVert\boldsymbol{\theta}\rVert_2^2.
+  \]
+  \begin{itemize}
+    \item 第一项衡量模型输出与观测值之间的误差。
+    \item 第二项为 regularisation，$\lambda\geq0$ 控制其权重。
+    \item 公式可复制、可缩放，无需截图或额外图片。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{表格保持简洁，数据明确标注}
+  \begin{table}
+    \centering
+    \renewcommand{\arraystretch}{1.25}
+    \begin{tabular}{lrrr}
+      \toprule
+      方法 & 得分 $\uparrow$ & 耗时（秒）$\downarrow$ & 参数量 \\
+      \midrule
+      基线方法 & 0.72 & 12.4 & 128 \\
+      方案 A & 0.78 & 10.1 & 128 \\
+      方案 B & \textbf{0.81} & \textbf{9.6} & 128 \\
+      \bottomrule
+    \end{tabular}
+    \caption{仅用于演示排版的示意数据，不代表真实实验结果。}
+  \end{table}
+  \begin{block}{用一句话解释结果}
+    说明比较条件和评价指标；正式报告中按需补充误差范围与数据来源。
+  \end{block}
+\end{frame}
+
+\begin{frame}{用原生 TikZ 绘图，便于复用与修改}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[
+      stage/.style={draw=CityULine,fill=CityUPaper,rounded corners=2pt,
+        minimum height=1.35cm,text width=3.3cm,align=center,font=\small},
+      flow/.style={-{Latex[length=2mm]},thick,CityURed},
+      node distance=9mm
+    ]
+      \node[stage] (input) {\textbf{准备数据}\\明确输入与质量要求};
+      \node[stage,right=of input] (method) {\textbf{执行方法}\\写清假设与处理步骤};
+      \node[stage,right=of method] (output) {\textbf{解释结果}\\给出证据与适用边界};
+      \draw[flow] (input) -- (method);
+      \draw[flow] (method) -- (output);
+    \end{tikzpicture}
+    \caption{三步工作流示例。图形和文字均可直接修改。}
+  \end{figure}
+  \medskip
+  \begin{itemize}
+    \item 矢量图适合展示关系、流程与结构。
+    \item 本例不调用外部绘图程序，也不需要 shell escape。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{写作与分享前的检查}
+  \begin{enumerate}
+    \item 修改标题、作者、单位与日期，检查页脚短标题。
+    \item 确认图表、公式、参考资料与中文字符显示正确。
+    \item 在 Overleaf 选择 XeLaTeX，重新编译并检查 PDF。
+  \end{enumerate}
+  \medskip
+  \begin{alertblock}{使用与公开发布是两回事}
+    本项目是社区改编，并非城大官方认可模板。
+    公开发布校徽和品牌素材前须核实授权；提交 Overleaf Gallery
+    还需要满足官方认可要求。
+  \end{alertblock}
+\end{frame}
+
+\cityuclosing[欢迎提问与交流]{谢谢}
+
+\end{document}

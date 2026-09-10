@@ -1,0 +1,26 @@
+% SPDX-License-Identifier: MIT
+% Stage this file, the theme and latexmkrc in build/assetspath-check/.
+% Copy artwork to its brand/ directory; do not create an assets/ directory.
+\documentclass[aspectratio=169,11pt,t]{beamer}
+\usetheme[sectionpages=false,assetspath=brand]{CityU}
+\title[Manual pages]{Manual page checks}
+\author{}
+\date{}
+\cityufooter{CUSTOM FOOTER SENTINEL}
+
+\begin{document}
+\begin{frame}[plain,noframenumbering]
+  \titlepage
+\end{frame}
+\section{A manual divider}
+\begin{frame}[plain,noframenumbering]
+  \sectionpage
+\end{frame}
+\begin{frame}{After the manual divider}
+  Native page templates have their own artwork.
+\end{frame}
+\begin{frame}{Content background restored}
+  The custom footer and relocated artwork work together.
+\end{frame}
+\cityuclosing{Manual checks complete}
+\end{document}

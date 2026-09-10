@@ -1,0 +1,2 @@
+# Optional PDF quality checks only; not needed to compile on Overleaf.
+PyMuPDF==1.28.2

@@ -1,0 +1,228 @@
+% SPDX-License-Identifier: MIT
+% Overleaf: select XeLaTeX and set main.tex as the main document.
+% The bundled CityU artwork has separate terms: see NOTICE.md.
+\documentclass[aspectratio=169,11pt,t]{beamer}
+
+\usetheme{CityU}
+\usepackage{booktabs}
+\usetikzlibrary{arrows.meta,positioning}
+
+\title[CityU Beamer · January 2025 identity]{A CityU presentation,\\typeset with \LaTeX}
+\subtitle{Research talks · Teaching · Conference presentations}
+\author{Your Name}
+\institute{Department / Research Group\\City University of Hong Kong}
+\date{\today}
+
+\begin{document}
+
+\cityutitlepage
+
+\begin{frame}{Today's route}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \tableofcontents
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{A familiar identity, an editable deck}
+        The four backgrounds come from the supplied January 2025 PPT.
+        Everything you write remains native \LaTeX.
+      \end{block}
+      \small
+      Start with \texttt{minimal.tex}; use this document as a reference.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\section{Start with the message}
+
+\begin{frame}{Give the audience a clear message}
+  \framesubtitle{Native Beamer text, lists, and emphasis}
+  \begin{itemize}
+    \item Lead with the question your audience should remember.
+    \item Explain why the question matters in one sentence.
+    \item Connect the method to the evidence.
+    \item Use \alert{one accent colour} to guide attention.
+  \end{itemize}
+  \medskip
+  \begin{block}{The takeaway}
+    One slide should support one central idea.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Build an argument in two columns}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{The question}
+        What changes when we introduce a new method?
+      \end{block}
+      \begin{itemize}
+        \item Define a meaningful baseline.
+        \item Keep the comparison fair.
+        \item State the evaluation criteria.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{exampleblock}{The evidence}
+        Present the result and explain its practical meaning.
+      \end{exampleblock}
+      \begin{alertblock}{The limitation}
+        Make the conditions and remaining uncertainty explicit.
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Reveal ideas at a deliberate pace}
+  \begin{enumerate}[<+->]
+    \item Establish the problem.
+    \item Introduce the approach.
+    \item Explain the contribution.
+  \end{enumerate}
+  \bigskip
+  \begin{block}{One frame, three PDF pages}
+    Beamer overlays reveal content in place. The footer keeps the same
+    frame number on all three steps.\cite{beamer-manual}
+  \end{block}
+\end{frame}
+
+\section{Show the evidence}
+
+\begin{frame}{Typeset the mathematics directly}
+  \framesubtitle{An illustrative regularised least-squares objective}
+  \begin{equation}
+    \widehat{\boldsymbol{\theta}}
+      = \operatorname*{arg\,min}_{\boldsymbol{\theta}\in\mathbb{R}^{d}}
+      \left\{
+        \frac{1}{n}\sum_{i=1}^{n}
+        \bigl(y_i-\mathbf{x}_i^{\mathsf T}\boldsymbol{\theta}\bigr)^2
+        + \lambda\lVert\boldsymbol{\theta}\rVert_2^2
+      \right\}.
+  \end{equation}
+  \begin{itemize}
+    \item $\mathbf{x}_i$ and $y_i$: an input vector and its response.
+    \item $\lambda\geq0$: the regularisation parameter.
+    \item $n$ and $d$: the number of observations and features.
+  \end{itemize}
+  \smallskip
+  {\small Equations remain vector text, with native numbering and symbols.}
+\end{frame}
+
+\begin{frame}{Let a table support a precise claim}
+  \framesubtitle{Illustrative values only; not experimental findings}
+  \begin{table}
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lrrr}
+      \toprule
+      Variant & Score $\uparrow$ & Time (s) $\downarrow$ & Parameters \\
+      \midrule
+      Baseline & 0.72 & 12.4 & 128 \\
+      Variant A & 0.78 & 10.1 & 128 \\
+      Variant B & \textbf{0.81} & \textbf{9.6} & 128 \\
+      \bottomrule
+    \end{tabular}
+    \caption{A compact comparison using \texttt{booktabs}.}
+  \end{table}
+  \begin{block}{Explain the comparison}
+    Replace the sample values, describe the protocol, and report uncertainty
+    where it is relevant.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Draw a reproducible workflow}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[
+      stage/.style={draw=CityULine,fill=CityUPaper,rounded corners=2pt,
+        minimum height=1.35cm,text width=3.3cm,align=center,font=\small},
+      flow/.style={-{Latex[length=2mm]},thick,CityURed},
+      node distance=9mm
+    ]
+      \node[stage] (input) {\textbf{Prepare}\\Define and inspect inputs};
+      \node[stage,right=of input] (method) {\textbf{Analyse}\\Apply a stated method};
+      \node[stage,right=of method] (output) {\textbf{Evaluate}\\Interpret the outputs};
+      \draw[flow] (input) -- (method);
+      \draw[flow] (method) -- (output);
+    \end{tikzpicture}
+    \caption{A native TikZ diagram with editable labels and vector geometry.}
+  \end{figure}
+  \medskip
+  \begin{itemize}
+    \item Use a diagram when a relationship is easier to see than to describe.
+    \item Keep labels short and explain what moves between stages.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Cite sources without extra build tools}
+  \small
+  \begin{thebibliography}{9}
+    \bibitem{beamer-manual}
+      The Beamer Project.
+      \newblock \emph{The Beamer class: User guide}.
+      \newblock \href{https://ctan.org/pkg/beamer}{ctan.org/pkg/beamer}.
+
+    \bibitem{cityu-identity}
+      City University of Hong Kong, Communications and Institutional Research Office.
+      \newblock Corporate identity resources.
+      \newblock \href{https://www.cityu.edu.hk/ciro/}{cityu.edu.hk/ciro}.
+  \end{thebibliography}
+  \medskip
+  \begin{block}{About this adaptation}
+    The artwork was extracted from the supplied 202501 PPT.
+    This is a community adaptation, not an officially endorsed template.
+  \end{block}
+\end{frame}
+
+\section{Make it your own}
+
+\begin{frame}[fragile]{Start from a minimal source file}
+  \small
+\begin{verbatim}
+\documentclass[aspectratio=169,11pt,t]{beamer}
+\usetheme{CityU}
+\title[Short title]{Your presentation title}
+\author{Your Name}
+\begin{document}
+\cityutitlepage
+\begin{frame}{One idea} Text. \end{frame}
+\cityuclosing{Thank you}
+\end{document}
+\end{verbatim}
+  \begin{block}{Keep the files together}
+    Compile beside \texttt{beamerthemeCityU.sty} and the \texttt{assets/}
+    directory, using XeLaTeX.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Small controls, predictable results}
+  \begin{description}[\texttt{sectionpages=false}]
+    \item[\texttt{sectionpages=false}] Disable automatic section dividers.
+    \item[\texttt{footer=false}] Hide the footer on content frames.
+    \item[\texttt{assetspath=assets}] Set the relative artwork directory.
+  \end{description}
+  \medskip
+  \begin{block}{Chinese and bilingual presentations}
+    Open \texttt{example-zh.tex}. It uses \texttt{ctex} with Fandol fonts,
+    which are distributed with TeX Live.
+  \end{block}
+  \smallskip
+  {\small Cover, section, and closing helper pages do not count towards the footer total.}
+\end{frame}
+
+\begin{frame}{Before you share the deck}
+  \begin{enumerate}
+    \item Replace the example title, author, and illustrative content.
+    \item Compile with XeLaTeX and inspect every PDF page.
+    \item Check the permissions for any figures and university branding.
+  \end{enumerate}
+  \medskip
+  \begin{alertblock}{Overleaf import is not Gallery approval}
+    Public Gallery submission of a university presentation template requires
+    official recognition and appropriate branding permissions.
+    See the publication checklist in the documentation.
+  \end{alertblock}
+\end{frame}
+
+\cityuclosing[Questions and discussion]{Thank you}
+
+\end{document}

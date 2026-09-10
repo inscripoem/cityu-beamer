@@ -1,0 +1,57 @@
+# Local builds and release downloads belong outside Git history.
+/build/
+/dist/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+*.dvi
+*.pdf
+*.zip
+
+# Original office templates are not part of this repository.
+*.ppt
+*.pptx
+*.potx
+/cityu-official-assets/
+
+# Local tools, credentials and editor state.
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+/.idea/
+/.vscode/
+/.agents/
+/.codex/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Curated documentation previews are versioned; scratch exports remain ignored.
+/previews/*
+!/previews/README.md
+!/previews/overview-en.png
+!/previews/overview-zh.png
+!/previews/overview-minimal.png
+!/previews/cityu-beamer-en.pdf
+!/previews/cityu-beamer-zh.pdf
+!/previews/cityu-beamer-minimal.pdf
+
+# The four required assets/*.png files are intentionally NOT ignored.
+# Artwork and branded previews have separate rights notices; see NOTICE.md.

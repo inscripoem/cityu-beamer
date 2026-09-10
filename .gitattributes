@@ -1,0 +1,16 @@
+* text=auto
+*.tex text eol=lf
+*.sty text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.txt text eol=lf
+LICENSE text eol=lf
+latexmkrc text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+*.png binary
+*.pdf binary
+*.zip binary
+*.pptx binary
