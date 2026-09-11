@@ -1,4 +1,4 @@
-# CityUHK Beamer
+# CityU Beamer
 
 [English](README.md) · [简体中文](README.zh.md)
 
@@ -77,9 +77,9 @@ latexmk -xelatex -outdir=build example-zh.tex
 
 ## Agent Skill 开发
 
-仓库内的初版 [CityUHK Beamer skill](.agents/skills/cityuhk-beamer/SKILL.md) 为 OpenCode 和 Codex 提供基于现有模板的共享指引。目前需要完整仓库，输出目标为 PDF 与 LaTeX 源码；自动化脚本、独立安装及两种工具中的验证将在 [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2) 中继续推进。
+仓库内的初版 [CityU Beamer skill](.agents/skills/cityu-beamer/SKILL.md) 为 OpenCode 和 Codex 提供基于现有模板的共享指引。目前需要完整仓库，输出目标为 PDF 与 LaTeX 源码；自动化脚本、独立安装及两种工具中的验证将在 [issue #2](https://github.com/inscripoem/cityu-beamer/issues/2) 中继续推进。
 
-请在 `.agents/skills/cityuhk-beamer/` 中贡献，目录约定见 [skill 贡献指南](.agents/skills/README.md)（英文）。
+请在 `.agents/skills/cityu-beamer/` 中贡献，目录约定见 [skill 贡献指南](.agents/skills/README.md)（英文）。
 
 ## 文档
 
@@ -94,7 +94,7 @@ latexmk -xelatex -outdir=build example-zh.tex
 
 ## 许可
 
-原创主题代码、示例、工具、配置与文档采用 [MIT 许可](LICENSE)。CityUHK 品牌素材及预览中使用的这些素材不在其中，来源与权利边界见 [NOTICE.md](NOTICE.md)。本项目尚未确立公开再分发品牌素材的权限。
+原创主题代码、示例、工具、配置与文档采用 [MIT 许可](LICENSE)。CityU 品牌素材及预览中使用的这些素材不在其中，来源与权利边界见 [NOTICE.md](NOTICE.md)。本项目尚未确立公开再分发品牌素材的权限。
 
 ## 致谢
 
